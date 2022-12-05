@@ -66,13 +66,19 @@ class MyButtonState extends State<MyButton>{
 
               Text(DefaultenglishText, style: TextStyle(fontSize: 30.0)),
               Padding(padding: EdgeInsets.all(10.0),),
-              
-              FloatingActionButton(
+
+              MaterialButton(
+                child: Text('Call numbers', style: TextStyle(color: Colors.white),),
                 onPressed: displaynumbers,
+                color: Colors.orange,
               ),
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: displaynumbers,
+        child: const Icon(Icons.add),
       ),
     );
   }
