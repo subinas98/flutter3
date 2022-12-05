@@ -16,19 +16,34 @@ class MyButton extends StatefulWidget{
 }
 
 class MyButtonState extends State<MyButton>{
-  int counter = 0;
+
+  int Scounter = 0;
   List<String> SpanishNumbers = [
     "Uno", "Dos", "Tres", "Cautro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Dietz"
   ];
-  String DefaultText = "Spanish Numbers";
+  String DefaultspanishText = "Spanish Numbers";
+  
+  int Ecounter = 0;
+  List<String> EnglishNumbers =[
+   "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"
+  ];
+  String DefaultenglishText = "English Numbers";
 
   void displaynumbers(){
     setState(() {
-      DefaultText = SpanishNumbers[counter];
-      if (counter < 9) {
-        counter++;
+      DefaultspanishText = SpanishNumbers[Scounter];
+      if (Scounter < 9) {
+        Scounter++;
       } else {
-        counter = 0;
+        Scounter = 0;
+      }
+    });
+    setState(() {
+      DefaultenglishText = EnglishNumbers[Ecounter];
+      if (Ecounter < 9) {
+        Ecounter++;
+      } else {
+        Ecounter = 0;
       }
     });
   }
@@ -45,12 +60,15 @@ class MyButtonState extends State<MyButton>{
           child: Column( 
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget> [
-              Text(DefaultText, style: TextStyle(fontSize: 30.0)),
+
+              Text(DefaultspanishText, style: TextStyle(fontSize: 30.0)),
               Padding(padding: EdgeInsets.all(10.0),),
-              MaterialButton(
-                child: Text('Call numbers', style: TextStyle(color: Colors.white),),
+
+              Text(DefaultenglishText, style: TextStyle(fontSize: 30.0)),
+              Padding(padding: EdgeInsets.all(10.0),),
+              
+              FloatingActionButton(
                 onPressed: displaynumbers,
-                color: Colors.orange,
               ),
             ],
           ),
